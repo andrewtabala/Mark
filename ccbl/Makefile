@@ -3,7 +3,15 @@ NAME = game
 all: install
 
 install:
-	gcc  main.c -o $(NAME)
+	gcc  -I /usr/local/include \
+		main.c \
+		img.c \
+		drawland.c \
+		keyactions.c \
+		-L /usr/local/lib \
+		-lmlx -framework OpenGL \
+		-framework Appkit \
+		-o $(NAME)
 uninstall:
 	rm -rf *.o
 clean: uninstall
