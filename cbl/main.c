@@ -14,9 +14,11 @@ int			key_press(int key, void *param)
 	g = (t_pr *)param;
 	if (key == 53)
 		exit(0);
-	if (key == 123 || key == 124 || key == 0 || key == 2 || key == 125 || key == 1 ||
-		key == 126 || key == 36)
+	if ((key == 123 || key == 124 || key == 0 || key == 2 || key == 125 || key == 1) &&
+		g->menuswitch == 0)
 		move(key, g);
+	if ((key == 126 || key == 125 || key == 36) && g->menuswitch == 1)
+		menumove(key, g);
 	return (0);
 }
 

@@ -13,5 +13,6 @@ void	img(t_pr *g)
 	g->img_proj = mlx_new_image(g->mlx_ptr, g->w_width, g->w_height);
 	g->img_buttonplay = mlx_new_image(g->mlx_ptr, g->w_width, g->w_height);
 	g->img_buttonexit = mlx_new_image(g->mlx_ptr, g->w_width, g->w_height);
+	g->img_buttonmulti = mlx_new_image(g->mlx_ptr, g->w_width, g->w_height);
 	g->img_buttonframe = mlx_new_image(g->mlx_ptr, g->w_width, g->w_height);
 }

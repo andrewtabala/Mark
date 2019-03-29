@@ -42,57 +42,34 @@ void	bullet_fire(t_pr *g)
 void		move(int i, t_pr *g)
 {
 	mlx_clear_window(g->mlx_ptr, g->win_ptr);
-	if (g->menuswitch == 0)
+	if (i == 123 || i == 0)
 	{
-		if (i == 123 || i == 0)
-		{
-			g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy2.xpm", &g->w, &g->w);
-			if (g->lev >= 3)
-				g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guyspace2.xpm", &g->w, &g->w);
-			if (g->xguy > 0)
-				g->xguy -= 8;
-		}
-		else if (i == 124 || i == 1)
-		{
-			g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy.xpm", &g->w, &g->w);
-			if (g->lev >= 3)
-				g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guyspace.xpm", &g->w, &g->w);
-			if (g->xguy < g->w_width - 64)
-				g->xguy += 8;
-		}
-		g->points += 1;
-		if (g->points == 500)
-		{
-			g->pointscolor = 14277081;
-			g->lev = 2;
-		}
-		else if (g->points == 1000)
-			g->lev = 3;
-		drawback(g);
-		drawland(g);
-		drawui(g);
-		drawguy(g);
-		bullet_fire(g);
-		mlx_loop(g->mlx_ptr);
+		g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy2.xpm", &g->w, &g->w);
+		if (g->lev >= 3)
+			g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guyspace2.xpm", &g->w, &g->w);
+		if (g->xguy > 0)
+			g->xguy -= 8;
 	}
-	else
+	else if (i == 124 || i == 1)
 	{
-		if (i == 125 && g->menubar <= 1)
-			g->menubar++;
-		else if (i == 126 && g->menubar >= 2)
-			g->menubar--;
-		else if (i == 36 && g->menubar == 1)
-		{
-			g->menuswitch = 0;
-			drawback(g);
-			drawland(g);
-			drawui(g);
-			drawguy(g);
-			bullet_fire(g);
-			mlx_loop(g->mlx_ptr);
-		}
-		else if (i == 36 && g->menubar == 2)
-			exit(0);
-		menu(g);
+		g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy.xpm", &g->w, &g->w);
+		if (g->lev >= 3)
+			g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guyspace.xpm", &g->w, &g->w);
+		if (g->xguy < g->w_width - 64)
+			g->xguy += 8;
 	}
+	g->points += 1;
+	if (g->points == 500)
+	{
+		g->pointscolor = 14277081;
+		g->lev = 2;
+	}
+	else if (g->points == 1000)
+		g->lev = 3;
+	drawback(g);
+	drawland(g);
+	drawui(g);
+	drawguy(g);
+	bullet_fire(g);
+	mlx_loop(g->mlx_ptr);
 }

@@ -39,6 +39,7 @@ typedef struct 	s_pr
 	void	*img_proj;
 	void	*img_buttonplay;
 	void	*img_buttonexit;
+	void	*img_buttonmulti;
 	void	*img_buttonframe;
 	int		*img_data;
 	int		pointscolor;
@@ -65,5 +66,7 @@ void	move(int i, t_pr *w);
 void	drawdrop(t_pr *g, int x, int y);
 void	drawui(t_pr *g);
 void	menu(t_pr *g);
+void	menumove(int i, t_pr *g);
+void	bullet_fire(t_pr *g);
 
 #endif
