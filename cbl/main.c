@@ -28,6 +28,7 @@ void		setup_controls(t_pr *g)
 int main(int argc, char **argv)
 {
 	t_pr	g;
+	g.ybull = 0;
 	g.w = 64;
 	g.xguy = 0;
 	g.lev = 1;

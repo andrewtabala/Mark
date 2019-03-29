@@ -19,6 +19,7 @@ void		move(int i, t_pr *g)
 			g->xguy += 8;
 		}
 	}
+	g->ybull += 6;
 	drawback(g);
 	drawland(g);
 	drawguy(g);

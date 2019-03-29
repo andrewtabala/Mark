@@ -8,8 +8,9 @@ install:
 		img.c \
 		drawland.c \
 		keyactions.c \
+		minilibx_macos/libmlx.a \
 		-L /usr/local/lib \
-		-lmlx -framework OpenGL \
+		-framework OpenGL \
 		-framework Appkit \
 		-o $(NAME)
 uninstall:

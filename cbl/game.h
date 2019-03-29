@@ -26,6 +26,8 @@ typedef struct 	s_pr
 
 	int		xguy;
 
+	int		ybull;
+
 
 	int		w;
 }				t_pr;
