@@ -2,8 +2,15 @@
 
 void	drawdrop(t_pr *g, int x, int y)
 {
-	g->img_proj = mlx_xpm_file_to_image(g->mlx_ptr, "textures/bullet1.xpm", &g->w, &g->w);
-	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_proj, 40, g->ybull);
+	if (g->lev == 1)
+		g->img_proj = mlx_xpm_file_to_image(g->mlx_ptr, "textures/bullet1.xpm", &g->w, &g->w);
+	else if (g->lev == 2)
+		g->img_proj = mlx_xpm_file_to_image(g->mlx_ptr, "textures/bullet2.xpm", &g->w, &g->w);
+	else if (g->lev == 3)
+		g->img_proj = mlx_xpm_file_to_image(g->mlx_ptr, "textures/bullet3.xpm", &g->w, &g->w);
+	else
+		g->img_proj = mlx_xpm_file_to_image(g->mlx_ptr, "textures/bullet4.xpm", &g->w, &g->w);
+	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_proj, 90, g->ybull);
 }
 
 void	drawguy(t_pr *g)
@@ -37,7 +44,11 @@ void	drawland(t_pr *g)
 		return;
 	}
 	else if (g->lev == 3)
-		g->img_land = mlx_xpm_file_to_image(g->mlx_ptr, "textures/stone.xpm", &g->w, &g->w);
+	{
+		g->img_land = mlx_xpm_file_to_image(g->mlx_ptr, "textures/rocket.xpm", &g->w, &g->w);
+		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_land, 0, g->w_height - 218);
+		return;
+	}
 	else
 		g->img_land = mlx_xpm_file_to_image(g->mlx_ptr, "textures/mossy.xpm", &g->w, &g->w);
 	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_land, 0, g->w_height - 40);

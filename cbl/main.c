@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 	g.ybull = 0;
 	g.w = 64;
 	g.xguy = 0;
-	g.lev = 2;
+	g.lev = 3;
 	g.w_width = 480;
 	g.w_height = 640;
 	g.mlx_ptr = mlx_init();
