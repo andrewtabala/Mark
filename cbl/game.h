@@ -5,7 +5,24 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <string.h>
+# include <time.h>
 # include "minilibx_macos/mlx.h"
+
+#define MAX_BULLETS	35
+
+enum			e_bullet_type
+{
+	NORMAL,
+	EXPLOSIVE
+};
+
+typedef struct	s_bullet
+{
+	unsigned char		speed;
+	int					type;
+	int					y;
+	int					x;
+}				t_bullet;
 
 typedef struct 	s_pr
 {
@@ -21,19 +38,14 @@ typedef struct 	s_pr
 	void	*img_guy;
 	void	*img_proj;
 	int		*img_data;
-
 	int		pointscolor;
-
 	int		lev;
-
 	double	points;
-
 	int		xguy;
-
-	int		ybull;
-
-
 	int		w;
+	int		level_speed;
+	int		bullet_count;
+	t_bullet *bullets;
 }				t_pr;
 
 
