@@ -40,6 +40,7 @@ int main(int argc, char **argv)
 	drawback(&g);
 	drawland(&g);
 	drawguy(&g);
+	drawdrop(&g, 50, 50);
 	mlx_loop(g.mlx_ptr);
 	return (0);
 }

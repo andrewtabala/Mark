@@ -19,6 +19,7 @@ typedef struct 	s_pr
 	void	*img_land;
 	void	*img_back;
 	void	*img_guy;
+	void	*img_proj;
 	int		*img_data;
 
 	int		lev;
@@ -34,5 +35,6 @@ void	drawland(t_pr *g);
 void	drawback(t_pr *g);
 void	drawguy(t_pr *g);
 void	move(int i, t_pr *w);
+void	drawdrop(t_pr *g, int x, int y);
 
 #endif

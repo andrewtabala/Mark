@@ -22,5 +22,6 @@ void		move(int i, t_pr *g)
 	drawback(g);
 	drawland(g);
 	drawguy(g);
+	drawdrop(g, 50, 50);
 	mlx_loop(g->mlx_ptr);
 }

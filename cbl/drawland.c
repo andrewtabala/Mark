@@ -1,5 +1,11 @@
 #include "game.h"
 
+void	drawdrop(t_pr *g, int x, int y)
+{
+	g->img_proj = mlx_xpm_file_to_image(g->mlx_ptr, "textures/bullet.xpm", &g->w, &g->w);
+	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_proj, x, y);
+}
+
 void	drawguy(t_pr *g)
 {
 	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_guy, g->xguy, g->w_height - 80);
