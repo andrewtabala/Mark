@@ -16,6 +16,8 @@ void		move(int i, t_pr *g)
 		if (g->xguy > 0)
 		{
 			g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy2.xpm", &g->w, &g->w);
+			if (g->lev >= 3)
+				g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guyspace2.xpm", &g->w, &g->w);
 			g->xguy -= 8;
 		}
 	}
@@ -24,6 +26,8 @@ void		move(int i, t_pr *g)
 		if (g->xguy < g->w_width - 64)
 		{
 			g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy.xpm", &g->w, &g->w);
+			if (g->lev >= 3)
+				g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guyspace.xpm", &g->w, &g->w);
 			g->xguy += 8;
 		}
 	}

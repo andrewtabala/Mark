@@ -15,6 +15,14 @@ void	drawdrop(t_pr *g, int x, int y)
 
 void	drawguy(t_pr *g)
 {
+	if (g->lev == 1)
+		g->img_proj = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy.xpm", &g->w, &g->w);
+	else if (g->lev == 2)
+		g->img_proj = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy.xpm", &g->w, &g->w);
+	else if (g->lev == 3)
+		g->img_proj = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guyspace.xpm", &g->w, &g->w);
+	else
+		g->img_proj = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guyspace.xpm", &g->w, &g->w);
 	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_guy, g->xguy, g->w_height - 80);
 }
 
