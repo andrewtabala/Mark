@@ -22,7 +22,11 @@ typedef struct 	s_pr
 	void	*img_proj;
 	int		*img_data;
 
+	int		pointscolor;
+
 	int		lev;
+
+	double	points;
 
 	int		xguy;
 
@@ -32,11 +36,14 @@ typedef struct 	s_pr
 	int		w;
 }				t_pr;
 
+
+char	*ft_itoa(int n);
 void	img(t_pr *g);
 void	drawland(t_pr *g);
 void	drawback(t_pr *g);
 void	drawguy(t_pr *g);
 void	move(int i, t_pr *w);
 void	drawdrop(t_pr *g, int x, int y);
+void	drawui(t_pr *g);
 
 #endif

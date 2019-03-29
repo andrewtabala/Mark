@@ -8,6 +8,7 @@ install:
 		img.c \
 		drawland.c \
 		keyactions.c \
+		itoa.c \
 		minilibx_macos/libmlx.a \
 		-L /usr/local/lib \
 		-framework OpenGL \

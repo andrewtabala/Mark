@@ -28,10 +28,12 @@ void		setup_controls(t_pr *g)
 int main(int argc, char **argv)
 {
 	t_pr	g;
+	g.points = 0;
+	g.pointscolor = 6381921;
 	g.ybull = 0;
 	g.w = 64;
 	g.xguy = 0;
-	g.lev = 3;
+	g.lev = 1;
 	g.w_width = 480;
 	g.w_height = 640;
 	g.mlx_ptr = mlx_init();
@@ -40,6 +42,7 @@ int main(int argc, char **argv)
 	setup_controls(&g);
 	drawback(&g);
 	drawland(&g);
+	drawui(&g);
 	drawguy(&g);
 	drawdrop(&g, 50, 50);
 	mlx_loop(g.mlx_ptr);
