@@ -9,6 +9,7 @@ install:
 		drawland.c \
 		keyactions.c \
 		itoa.c \
+		menu.c \
 		minilibx_macos/libmlx.a \
 		-L /usr/local/lib \
 		-framework OpenGL \

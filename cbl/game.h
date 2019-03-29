@@ -8,7 +8,7 @@
 # include <time.h>
 # include "minilibx_macos/mlx.h"
 
-#define MAX_BULLETS	35
+#define MAX_BULLETS	100
 
 enum			e_bullet_type
 {
@@ -37,10 +37,17 @@ typedef struct 	s_pr
 	void	*img_back;
 	void	*img_guy;
 	void	*img_proj;
+	void	*img_buttonplay;
+	void	*img_buttonexit;
+	void	*img_buttonframe;
 	int		*img_data;
 	int		pointscolor;
 	int		lev;
 	double	points;
+
+	int		menuswitch;
+	int		menubar;
+
 	int		xguy;
 	int		w;
 	int		level_speed;
@@ -57,5 +64,6 @@ void	drawguy(t_pr *g);
 void	move(int i, t_pr *w);
 void	drawdrop(t_pr *g, int x, int y);
 void	drawui(t_pr *g);
+void	menu(t_pr *g);
 
 #endif
