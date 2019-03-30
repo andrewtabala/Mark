@@ -95,13 +95,8 @@ void		move(int i, t_pr *g)
 		else if (g->menubar == 2 && g->xteammate < g->w_width - 64 && i == 124)
 			g->xteammate += 8;
 	}
-	else if ((i == 125 || i == 1) && g->lev >= 3 && g->pauseswitch == 0)
-	{
-		g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guyspace.xpm", &g->w, &g->w);
-		(g->menubar == 2) ? (g->img_teammate = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guyspace.xpm", &g->w, &g->w)) : 0;
-	}
 	if (g->pauseswitch == 0)
-		g->points += 1;
+		g->points += 20;
 	if (g->points == 500 )
 	{
 		g->img_land = mlx_xpm_file_to_image(g->mlx_ptr, "textures/cloud.xpm", &g->w, &g->w);
