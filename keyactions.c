@@ -28,19 +28,10 @@ void	init_bullet(t_bullet *bullet, t_pr *g)
 	bullet->y = rand() % 30;
 }
 
-void	win(t_pr *g)
-{
-	g->gameoverswitch = 1;
-	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_win, 0, 0);
-	// mlx_loop(g->mlx_ptr);
-}
-
 void	game_over(t_pr *g) {
 	g->gameoverswitch = 1;
 	if (g->points == 2000)
-	{
-		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_win, 0, 0);
-	}
+		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_win, 0, -60);
 	else
 		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_gameover, 0, 0);
 }
@@ -110,7 +101,7 @@ void		move(int i, t_pr *g)
 		(g->menubar == 2) ? (g->img_teammate = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy2.xpm", &g->w, &g->w)) : 0;
 	}
 	if (g->pauseswitch == 0)
-		g->points += 0.5;
+		g->points += 100;
 	if (g->points == 500 )
 	{
 		g->img_land = mlx_xpm_file_to_image(g->mlx_ptr, "textures/cloud.xpm", &g->w, &g->w);

@@ -40,6 +40,7 @@ typedef struct 	s_pr
 	void	*img_buttonplay;
 	void	*img_buttonexit;
 	void	*img_buttonmulti;
+	void	*img_buttoncoop;
 	void	*img_buttonframe;
 	void	*img_level1;
 	void	*img_level2;
