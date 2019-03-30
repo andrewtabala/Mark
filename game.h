@@ -36,6 +36,7 @@ typedef struct 	s_pr
 	void	*img_land;
 	void	*img_back;
 	void	*img_guy;
+	void	*img_teammate;
 	void	*img_proj;
 	void	*img_buttonplay;
 	void	*img_buttonexit;
@@ -58,6 +59,7 @@ typedef struct 	s_pr
 	int		menubar;
 
 	int		xguy;
+	int		xteammate;
 	int		w;
 	int		level_speed;
 	int		bullet_count;

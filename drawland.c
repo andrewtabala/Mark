@@ -10,6 +10,8 @@ void	drawguy(t_pr *g)
 {
 	//g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guyspace.xpm", &g->w, &g->w);
 	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_guy, g->xguy, g->w_height - 80);
+	if (g->menubar == 2)
+		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_teammate, g->xteammate, g->w_height - 80);
 }
 
 void	drawback(t_pr *g)

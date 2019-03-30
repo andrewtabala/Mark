@@ -19,6 +19,7 @@ void init(t_pr *g)
 	g->img_win = mlx_xpm_file_to_image(g->mlx_ptr, "textures/win.xpm", &g->w, &g->w);
 	g->img_gameover = mlx_xpm_file_to_image(g->mlx_ptr, "textures/gameover.xpm", &g->w, &g->w);
 	g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy.xpm", &g->w, &g->w);
+	g->img_teammate = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy.xpm", &g->w, &g->w);	
 	g->bullets = (t_bullet *)calloc(MAX_BULLETS, sizeof(t_bullet));
 }
 

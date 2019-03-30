@@ -48,7 +48,8 @@ void	game_over(t_pr *g) {
 }
 
 int		bullet_kills(t_pr *g, t_bullet *bullet) {
-	return (bullet->y >= 535 && bullet->y <= 640 - 30 && bullet->x >= g->xguy - 4 && bullet->x <= g->xguy + 38);
+	return (bullet->y >= 535 && bullet->y <= 640 - 30 && ((bullet->x >= g->xguy - 4 && bullet->x <= g->xguy + 38)
+		|| (g->menubar == 2 && bullet->x >= g->xteammate - 4 && bullet->x <= g->xteammate + 38)));
 }
 
 void	bullet_fire(t_pr *g)
@@ -79,22 +80,37 @@ void		move(int i, t_pr *g)
 	mlx_clear_window(g->mlx_ptr, g->win_ptr);
 	if ((i == 123 || i == 0) && g->pauseswitch == 0)
 	{
-		g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy2.xpm", &g->w, &g->w);
+		(g->menubar == 1 || i == 0) ? g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy2.xpm", &g->w, &g->w) : 0;
+		(g->menubar == 2 && i == 123) ? (g->img_teammate = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy2.xpm", &g->w, &g->w)) : 0;
 		if (g->lev >= 3)
-			g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guyspace2.xpm", &g->w, &g->w);
-		if (g->xguy > 0)
+		{
+			(g->menubar == 1 || i == 0) ? g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guyspace2.xpm", &g->w, &g->w) : 0;
+			(g->menubar == 2 && i == 123) ? (g->img_teammate = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guyspace2.xpm", &g->w, &g->w)) : 0;
+		}
+		if ((g->xguy > 0 && i == 0) || g->menubar == 1)
 			g->xguy -= 8;
+		else if (g->menubar == 2 && g->xteammate > 0 && i == 123)
+			g->xteammate -= 8;
 	}
-	else if ((i == 124 || i == 1) && g->pauseswitch == 0)
+	else if ((i == 124 || i == 2) && g->pauseswitch == 0)
 	{
-		g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy.xpm", &g->w, &g->w);
+		(g->menubar == 1 || i == 2) ? g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy.xpm", &g->w, &g->w) : 0;
+		(g->menubar == 2 && i == 124) ? (g->img_teammate = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy.xpm", &g->w, &g->w)) : 0;
 		if (g->lev >= 3)
-			g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guyspace.xpm", &g->w, &g->w);
-		if (g->xguy < g->w_width - 64)
+		{
+			(g->menubar == 1 || i == 0) ? g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guyspace.xpm", &g->w, &g->w) : 0;
+			(g->menubar == 2 && i == 123) ? (g->img_teammate = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guyspace.xpm", &g->w, &g->w)) : 0;
+		}
+		if ((g->xguy < g->w_width - 64 && i == 2) || g->menubar == 1)
 			g->xguy += 8;
+		else if (g->menubar == 2 && g->xteammate < g->w_width - 64 && i == 124)
+			g->xteammate += 8;
 	}
 	else if ((i == 125 || i == 1) && g->lev >= 3 && g->pauseswitch == 0)
+	{
 		g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guyspace.xpm", &g->w, &g->w);
+		(g->menubar == 2) ? (g->img_teammate = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy2.xpm", &g->w, &g->w)) : 0;
+	}
 	if (g->pauseswitch == 0)
 		g->points += 0.5;
 	if (g->points == 500 )
