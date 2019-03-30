@@ -36,18 +36,18 @@ void	game_over(t_pr *g) {
 }
 
 int		bullet_kills(t_pr *g, t_bullet *bullet) {
-	return (bullet->y >= 535 && bullet->x >= g->xguy - 8 && bullet->x <= g->xguy + 44);
+	return (bullet->y >= 535 && bullet->y <= 640 - 30 && bullet->x >= g->xguy - 4 && bullet->x <= g->xguy + 38);
 }
 
 void	bullet_fire(t_pr *g)
 {
 	int vero[] = {6, 5, 4, 3};
-	if (!(rand() % vero[g->lev - 1]))
+	if (!(rand() % (vero[g->lev - 1] * 9)))
 	{
 		if (g->bullet_count != MAX_BULLETS) {
 			init_bullet(&g->bullets[g->bullet_count], g);
+			g->bullet_count++;
 		}
-		g->bullet_count++;
 	}
 	for (int i = 0; i < g->bullet_count; i++)
 	{
