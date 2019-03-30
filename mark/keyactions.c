@@ -26,7 +26,7 @@ void	init_bullet(t_bullet *bullet, t_pr *g)
 	const int speed[] = {12, 17, 25, 35, 45, 55};
 
 	bullet->type = type[rand() % (g->lev * 2)];
-	bullet->speed = rand() % speed[rand() % g->lev] + g_lev ? g_lev : 1;
+	bullet->speed = rand() % speed[(rand() % g->lev) % 6] + g_lev ? g_lev : 1;
 	bullet->x = rand() % (g->w_width - g->w);
 	bullet->y = rand() % 30;
 }
