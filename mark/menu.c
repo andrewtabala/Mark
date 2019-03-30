@@ -9,11 +9,9 @@ void	menumove(int i, t_pr *g)
 		else if (i == 36 && (g->menubar == 1 || g->menubar == 2))
 		{
 			g->menuswitch = 0;
-			drawback(g);
-			drawland(g);
-			drawui(g);
-			drawguy(g);
-			bullet_fire(g);
+			g->pauseswitch = 1;
+			g->img_level1 = mlx_xpm_file_to_image(g->mlx_ptr, "textures/level1.xpm", &g->w, &g->w);
+			mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_level1, 0, 0);
 			mlx_loop(g->mlx_ptr);
 		}
 		else if (i == 36 && g->menubar == 3)

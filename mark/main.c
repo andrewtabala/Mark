@@ -15,8 +15,10 @@ int			key_press(int key, void *param)
 	if (key == 53)
 		exit(0);
 	if ((key == 123 || key == 124 || key == 0 || key == 2 || key == 125 || key == 1) &&
-		g->menuswitch == 0)
+		g->menuswitch == 0 && g->pauseswitch == 0)
 		move(key, g);
+	if (key == 36 && g->pauseswitch == 1)
+		unpause(g);
 	if ((key == 126 || key == 125 || key == 36) && g->menuswitch == 1)
 		menumove(key, g);
 	return (0);
@@ -32,6 +34,7 @@ void init(t_pr *g)
 {
 	srand(time(0));
 	bzero(g, sizeof(t_pr));
+	g->pauseswitch = 0;
 	g->menuswitch = 1;
 	g->menubar = 1;
 	g->pointscolor = 6381921;
@@ -53,11 +56,6 @@ int main(int argc, char **argv)
 	init(&g);
 	setup_controls(&g);
 	menu(&g);
-	/*drawback(&g);
-	drawland(&g);
-	drawui(&g);
-	drawguy(&g);*/
-	// drawdrop(&g, 50, 50);
 	mlx_loop(g.mlx_ptr);
 	return (0);
 }

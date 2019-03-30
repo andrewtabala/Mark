@@ -1,5 +1,17 @@
 #include "game.h"
 
+void	unpause(t_pr *g)
+{
+	g->pauseswitch = 0;
+	free(g->bullets);
+	g->bullets = (t_bullet *)calloc(MAX_BULLETS, sizeof(t_bullet));
+	drawback(g);
+	drawland(g);
+	drawui(g);
+	drawguy(g);
+	bullet_fire(g);
+}
+
 void		drawui(t_pr *g)
 {
 	mlx_string_put(g->mlx_ptr, g->win_ptr, 5, 5, g->pointscolor, "Points: ");
@@ -42,7 +54,7 @@ void	bullet_fire(t_pr *g)
 void		move(int i, t_pr *g)
 {
 	mlx_clear_window(g->mlx_ptr, g->win_ptr);
-	if (i == 123 || i == 0)
+	if ((i == 123 || i == 0) && g->pauseswitch == 0)
 	{
 		g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy2.xpm", &g->w, &g->w);
 		if (g->lev >= 3)
@@ -50,7 +62,7 @@ void		move(int i, t_pr *g)
 		if (g->xguy > 0)
 			g->xguy -= 8;
 	}
-	else if (i == 124 || i == 1)
+	else if ((i == 124 || i == 1) && g->pauseswitch == 0)
 	{
 		g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy.xpm", &g->w, &g->w);
 		if (g->lev >= 3)
@@ -58,18 +70,32 @@ void		move(int i, t_pr *g)
 		if (g->xguy < g->w_width - 64)
 			g->xguy += 8;
 	}
-	g->points += 1;
-	if (g->points == 500)
+	else if ((i == 125 || i == 1) && g->lev >= 3 && g->pauseswitch == 0)
+		g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guyspace.xpm", &g->w, &g->w);
+	if (g->pauseswitch == 0)
+		g->points += 10;
+	if (g->points == 500 )
 	{
+		g->img_level2 = mlx_xpm_file_to_image(g->mlx_ptr, "textures/level2.xpm", &g->w, &g->w);
+		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_level2, 0, 0);
+		g->pauseswitch = 1;
 		g->pointscolor = 14277081;
 		g->lev = 2;
 	}
-	else if (g->points == 1000)
+	else if (g->points == 1000 && g->pauseswitch == 0)
+	{
+		g->img_level3 = mlx_xpm_file_to_image(g->mlx_ptr, "textures/level3.xpm", &g->w, &g->w);
+		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_level3, 0, 0);
+		g->pauseswitch = 1;
 		g->lev = 3;
-	drawback(g);
-	drawland(g);
-	drawui(g);
-	drawguy(g);
-	bullet_fire(g);
+	}
+	if (g->pauseswitch == 0)
+	{
+		drawback(g);
+		drawland(g);
+		drawui(g);
+		drawguy(g);
+		bullet_fire(g);
+	}
 	mlx_loop(g->mlx_ptr);
 }

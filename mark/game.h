@@ -41,11 +41,16 @@ typedef struct 	s_pr
 	void	*img_buttonexit;
 	void	*img_buttonmulti;
 	void	*img_buttonframe;
+	void	*img_level1;
+	void	*img_level2;
+	void	*img_level3;
+	void	*img_level4;
 	int		*img_data;
 	int		pointscolor;
 	int		lev;
 	double	points;
 
+	int		pauseswitch;
 	int		menuswitch;
 	int		menubar;
 
@@ -68,5 +73,6 @@ void	drawui(t_pr *g);
 void	menu(t_pr *g);
 void	menumove(int i, t_pr *g);
 void	bullet_fire(t_pr *g);
+void	unpause(t_pr *g);
 
 #endif
