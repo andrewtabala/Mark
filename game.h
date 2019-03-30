@@ -8,7 +8,7 @@
 # include <time.h>
 # include "minilibx_macos/mlx.h"
 
-#define MAX_BULLETS	100
+#define MAX_BULLETS	1000
 
 enum			e_bullet_type
 {

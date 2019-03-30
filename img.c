@@ -19,8 +19,4 @@ void	img(t_pr *g)
 	g->img_level2 = mlx_new_image(g->mlx_ptr, g->w_width, g->w_height);
 	g->img_level3 = mlx_new_image(g->mlx_ptr, g->w_width, g->w_height);
 	g->img_level4 = mlx_new_image(g->mlx_ptr, g->w_width, g->w_height);
-	// g->img_level1 = mlx_xpm_file_to_image(g->mlx_ptr, "textures/level1.xpm", &g->w, &g->w);
-	g->img_level2 = mlx_xpm_file_to_image(g->mlx_ptr, "textures/level2.xpm", &g->w, &g->w);
-	// g->img_level3 = mlx_xpm_file_to_image(g->mlx_ptr, "textures/level3.xpm", &g->w, &g->w);
-	//g->img_level4 = mlx_xpm_file_to_image(g->mlx_ptr, "textures/level4.xpm", &g->w, &g->w);
 }

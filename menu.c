@@ -10,6 +10,10 @@ void	menumove(int i, t_pr *g)
 		{
 			g->menuswitch = 0;
 			g->pauseswitch = 1;
+			g->img_land = mlx_xpm_file_to_image(g->mlx_ptr, "textures/grass.xpm", &g->w, &g->w);
+			g->img_back = mlx_xpm_file_to_image(g->mlx_ptr, "textures/back1.xpm", &g->w, &g->w);
+			g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy.xpm", &g->w, &g->w);
+			g->img_proj = mlx_xpm_file_to_image(g->mlx_ptr, "textures/bullet1.xpm", &g->w, &g->w);
 			g->img_level1 = mlx_xpm_file_to_image(g->mlx_ptr, "textures/level1.xpm", &g->w, &g->w);
 			mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_level1, 0, 0);
 			mlx_loop(g->mlx_ptr);

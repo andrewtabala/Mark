@@ -23,10 +23,10 @@ void		drawui(t_pr *g)
 void	init_bullet(t_bullet *bullet, t_pr *g)
 {
 	const int type[] = {NORMAL, NORMAL, NORMAL, EXPLOSIVE, EXPLOSIVE, EXPLOSIVE};
-	const int speed[] = {12, 17, 25, 35, 45, 55};
+	const int speed[] = {20, 28, 35, 35, 45, 55};
 
 	bullet->type = type[rand() % (g->lev * 2)];
-	bullet->speed = rand() % speed[(rand() % g->lev) % 6] + g_lev ? g_lev : 1;
+	bullet->speed = rand() % speed[(rand() % g->lev) % 6] + g->lev ? g->lev : 1;
 	bullet->x = rand() % (g->w_width - g->w);
 	bullet->y = rand() % 30;
 }
@@ -76,7 +76,12 @@ void		move(int i, t_pr *g)
 		g->points += 10;
 	if (g->points == 500 )
 	{
+		g->img_land = mlx_xpm_file_to_image(g->mlx_ptr, "textures/cloud.xpm", &g->w, &g->w);
+		g->img_back = mlx_xpm_file_to_image(g->mlx_ptr, "textures/back2.xpm", &g->w, &g->w);
+		g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy.xpm", &g->w, &g->w);
+		g->img_proj = mlx_xpm_file_to_image(g->mlx_ptr, "textures/bullet2.xpm", &g->w, &g->w);
 		g->img_level2 = mlx_xpm_file_to_image(g->mlx_ptr, "textures/level2.xpm", &g->w, &g->w);
+		g->xguy = g->w_width/2 - 32;
 		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_level2, 0, 0);
 		g->pauseswitch = 1;
 		g->pointscolor = 14277081;
@@ -84,7 +89,12 @@ void		move(int i, t_pr *g)
 	}
 	else if (g->points == 1000 && g->pauseswitch == 0)
 	{
+		g->img_land = mlx_xpm_file_to_image(g->mlx_ptr, "textures/rocket.xpm", &g->w, &g->w);
+		g->img_back = mlx_xpm_file_to_image(g->mlx_ptr, "textures/back3.xpm", &g->w, &g->w);
+		g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guyspace.xpm", &g->w, &g->w);
+		g->img_proj = mlx_xpm_file_to_image(g->mlx_ptr, "textures/bullet3.xpm", &g->w, &g->w);
 		g->img_level3 = mlx_xpm_file_to_image(g->mlx_ptr, "textures/level3.xpm", &g->w, &g->w);
+		g->xguy = g->w_width/2 - 32;
 		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_level3, 0, 0);
 		g->pauseswitch = 1;
 		g->lev = 3;

@@ -43,6 +43,7 @@ void init(t_pr *g)
 	g->lev = 1;
 	g->w_width = 480;
 	g->w_height = 640;
+	g->xguy = g->w_width/2 - 32;
 	g->mlx_ptr = mlx_init();
 	g->win_ptr = mlx_new_window(g->mlx_ptr, g->w_width, g->w_height, "game");
 	g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy.xpm", &g->w, &g->w);
@@ -52,7 +53,6 @@ void init(t_pr *g)
 int main(int argc, char **argv)
 {
 	t_pr	g;
-	
 	init(&g);
 	setup_controls(&g);
 	menu(&g);
