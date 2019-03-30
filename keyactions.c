@@ -26,7 +26,7 @@ void	init_bullet(t_bullet *bullet, t_pr *g)
 
 	bullet->type = type[rand() % (g->lev * 2)];
 	bullet->speed = speed[g->lev - 1] + rand() % 10;
-	bullet->x = rand() % (g->w_width - g->w);
+	bullet->x = rand() % g->w_width;
 	bullet->y = rand() % 30;
 }
 
@@ -54,7 +54,7 @@ int		bullet_kills(t_pr *g, t_bullet *bullet) {
 void	bullet_fire(t_pr *g)
 {
 	int vero[] = {6, 5, 4, 3};
-	if (!(rand() % (vero[g->lev - 1] * 15)))
+	if (!(rand() % (vero[g->lev - 1] * 15)) || !((int)g->points % 500))
 	{
 		if (g->bullet_count != MAX_BULLETS) {
 			init_bullet(&g->bullets[g->bullet_count], g);
@@ -96,7 +96,7 @@ void		move(int i, t_pr *g)
 	else if ((i == 125 || i == 1) && g->lev >= 3 && g->pauseswitch == 0)
 		g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guyspace.xpm", &g->w, &g->w);
 	if (g->pauseswitch == 0)
-		g->points += 1;
+		g->points += 0.5;
 	if (g->points == 500 )
 	{
 		g->img_land = mlx_xpm_file_to_image(g->mlx_ptr, "textures/cloud.xpm", &g->w, &g->w);
