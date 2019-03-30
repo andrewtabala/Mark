@@ -29,7 +29,7 @@ void	menumove(int i, t_pr *g)
 			if (i == 123)
 			{
 				g->img_diff = mlx_xpm_file_to_image(g->mlx_ptr, "textures/diffl.xpm", &g->w, &g->w);
-				if (BS > 0)
+				if (BS > 1)
 					BS-=1;
 			}
 			else if (i == 124)
