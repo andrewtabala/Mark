@@ -3,8 +3,7 @@
 void	unpause(t_pr *g)
 {
 	g->pauseswitch = 0;
-	free(g->bullets);
-	g->bullets = (t_bullet *)calloc(MAX_BULLETS, sizeof(t_bullet));
+	g->bullet_count = 0;
 	drawback(g);
 	drawland(g);
 	drawui(g);
@@ -23,10 +22,10 @@ void		drawui(t_pr *g)
 void	init_bullet(t_bullet *bullet, t_pr *g)
 {
 	const int type[] = {NORMAL, NORMAL, NORMAL, EXPLOSIVE, EXPLOSIVE, EXPLOSIVE};
-	const int speed[] = {20, 28, 35, 35, 45, 55};
+	const int speed[] = {5, 8, 13, 19, 25, 35, 45, 55};
 
 	bullet->type = type[rand() % (g->lev * 2)];
-	bullet->speed = rand() % speed[(rand() % g->lev) % 6] + g->lev ? g->lev : 1;
+	bullet->speed = speed[g->lev - 1] + rand() % 10;
 	bullet->x = rand() % (g->w_width - g->w);
 	bullet->y = rand() % 30;
 }
