@@ -13,7 +13,7 @@ void	menumove(int i, t_pr *g)
 			if (g->menubar == 2)
 			{
 				g->xguy = 0;
-				g->xteammate = g->w_width - g->w;
+				g->xteammate = g->w_width - 64;
 			}
 			g->img_land = mlx_xpm_file_to_image(g->mlx_ptr, "textures/grass.xpm", &g->w, &g->w);
 			g->img_back = mlx_xpm_file_to_image(g->mlx_ptr, "textures/back1.xpm", &g->w, &g->w);

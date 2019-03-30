@@ -66,7 +66,6 @@ int main(int argc, char **argv)
 {
 	t_pr	g;
 	init(&g);
-	g.points = 999;
 	setup_controls(&g);
 	menu(&g);
 	mlx_loop(g.mlx_ptr);

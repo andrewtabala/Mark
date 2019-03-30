@@ -122,7 +122,7 @@ void		move(int i, t_pr *g)
 		g->img_proj = mlx_xpm_file_to_image(g->mlx_ptr, "textures/bullet2.xpm", &g->w, &g->w);
 		g->img_level2 = mlx_xpm_file_to_image(g->mlx_ptr, "textures/level2.xpm", &g->w, &g->w);
 		g->xguy = (g->menubar == 2) ? 0 : g->w_width/2 - 32;
-		g->xteammate = g->w_width - g->w;
+		g->xteammate = g->w_width - 64;
 		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_level2, 0, 0);
 		g->pauseswitch = 1;
 		g->pointscolor = 14277081;
@@ -137,7 +137,7 @@ void		move(int i, t_pr *g)
 		g->img_proj = mlx_xpm_file_to_image(g->mlx_ptr, "textures/bullet3.xpm", &g->w, &g->w);
 		g->img_level3 = mlx_xpm_file_to_image(g->mlx_ptr, "textures/level3.xpm", &g->w, &g->w);
 		g->xguy = (g->menubar == 2) ? 0 : g->w_width/2 - 32;
-		g->xteammate = g->w_width - g->w;
+		g->xteammate = g->w_width - 64;
 		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_level3, 0, 0);
 		g->pauseswitch = 1;
 		g->lev = 3;
@@ -151,7 +151,7 @@ void		move(int i, t_pr *g)
 		g->img_proj = mlx_xpm_file_to_image(g->mlx_ptr, "textures/bulletzapas.xpm", &g->w, &g->w);
 		g->img_level4 = mlx_xpm_file_to_image(g->mlx_ptr, "textures/level4.xpm", &g->w, &g->w);
 		g->xguy = (g->menubar == 2) ? 0 : g->w_width/2 - 32;
-		g->xteammate = g->w_width - g->w;
+		g->xteammate = g->w_width - 64;
 		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_level4, 0, 0);
 		g->pauseswitch = 1;
 		g->lev = 4;
