@@ -23,10 +23,10 @@ void		drawui(t_pr *g)
 void	init_bullet(t_bullet *bullet, t_pr *g)
 {
 	const int type[] = {NORMAL, NORMAL, NORMAL, EXPLOSIVE, EXPLOSIVE, EXPLOSIVE};
-	const int speed[] = {12, 17, 25};
+	const int speed[] = {12, 17, 25, 35, 45, 55};
 
 	bullet->type = type[rand() % (g->lev * 2)];
-	bullet->speed = rand() % speed[rand() % g->lev] + 1;
+	bullet->speed = rand() % speed[rand() % g->lev] + g_lev ? g_lev : 1;
 	bullet->x = rand() % (g->w_width - g->w);
 	bullet->y = rand() % 30;
 }
