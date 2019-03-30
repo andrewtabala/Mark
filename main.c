@@ -21,6 +21,8 @@ void init(t_pr *g)
 	g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy.xpm", &g->w, &g->w);
 	g->img_teammate = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy.xpm", &g->w, &g->w);	
 	g->bullets = (t_bullet *)calloc(MAX_BULLETS, sizeof(t_bullet));
+	g->xteammate = g->w_width - g->w;
+	g->xguy = 0;
 }
 
 int closewin(void *param)
