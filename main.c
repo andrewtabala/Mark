@@ -16,6 +16,7 @@ void init(t_pr *g)
 	g->xguy = g->w_width/2 - 32;
 	g->mlx_ptr = mlx_init();
 	g->win_ptr = mlx_new_window(g->mlx_ptr, g->w_width, g->w_height, "game");
+	g->img_win = mlx_xpm_file_to_image(g->mlx_ptr, "textures/win.xpm", &g->w, &g->w);
 	g->img_gameover = mlx_xpm_file_to_image(g->mlx_ptr, "textures/gameover.xpm", &g->w, &g->w);
 	g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy.xpm", &g->w, &g->w);
 	g->bullets = (t_bullet *)calloc(MAX_BULLETS, sizeof(t_bullet));
@@ -44,6 +45,8 @@ int			key_press(int key, void *param)
 		menumove(key, g);
 	if (key == 15 && g->gameoverswitch == 1)
 	{
+		g->lev = 1;
+		g->points = 0;
 		g->gameoverswitch = 0;
 		g->menuswitch = 1;
 		menu(g);

@@ -30,9 +30,21 @@ void	init_bullet(t_bullet *bullet, t_pr *g)
 	bullet->y = rand() % 30;
 }
 
+void	win(t_pr *g)
+{
+	g->gameoverswitch = 1;
+	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_win, 0, 0);
+	// mlx_loop(g->mlx_ptr);
+}
+
 void	game_over(t_pr *g) {
 	g->gameoverswitch = 1;
-	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_gameover, 0, 0);
+	if (g->points == 2000)
+	{
+		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_win, 0, 0);
+	}
+	else
+		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_gameover, 0, 0);
 }
 
 int		bullet_kills(t_pr *g, t_bullet *bullet) {
@@ -42,7 +54,7 @@ int		bullet_kills(t_pr *g, t_bullet *bullet) {
 void	bullet_fire(t_pr *g)
 {
 	int vero[] = {6, 5, 4, 3};
-	if (!(rand() % (vero[g->lev - 1] * 9)))
+	if (!(rand() % (vero[g->lev - 1] * 15)))
 	{
 		if (g->bullet_count != MAX_BULLETS) {
 			init_bullet(&g->bullets[g->bullet_count], g);
@@ -84,7 +96,7 @@ void		move(int i, t_pr *g)
 	else if ((i == 125 || i == 1) && g->lev >= 3 && g->pauseswitch == 0)
 		g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guyspace.xpm", &g->w, &g->w);
 	if (g->pauseswitch == 0)
-		g->points += 0.5;
+		g->points += 1;
 	if (g->points == 500 )
 	{
 		g->img_land = mlx_xpm_file_to_image(g->mlx_ptr, "textures/cloud.xpm", &g->w, &g->w);
@@ -122,7 +134,8 @@ void		move(int i, t_pr *g)
 		g->pauseswitch = 1;
 		g->lev = 4;
 	}
-	if (g->pauseswitch == 0)
+	
+	if (g->pauseswitch == 0 && g->gameoverswitch == 0)
 	{
 		drawback(g);
 		drawland(g);
@@ -130,5 +143,8 @@ void		move(int i, t_pr *g)
 		drawguy(g);
 		bullet_fire(g);
 	}
+	if (g->points == 2000 && g->pauseswitch == 0 && g->menubar == 1)
+		game_over(g);
+
 	mlx_loop(g->mlx_ptr);
 }

@@ -46,6 +46,7 @@ typedef struct 	s_pr
 	void	*img_level3;
 	void	*img_level4;
 	void	*img_gameover;
+	void	*img_win;
 	int		*img_data;
 	int		pointscolor;
 	int		lev;
