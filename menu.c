@@ -2,7 +2,7 @@
 
 void	menumove(int i, t_pr *g)
 {
-	if (i == 125 && g->menubar < 4)
+	if (i == 125 && g->menubar < 5)
 			g->menubar++;
 		else if (i == 126 && g->menubar > 1)
 			g->menubar--;
@@ -24,7 +24,22 @@ void	menumove(int i, t_pr *g)
 			mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_level1, 0, 0);
 			mlx_loop(g->mlx_ptr);
 		}
-		else if (i == 36 && g->menubar == 4)
+		else if (g->menubar == 4)
+		{
+			if (i == 123)
+			{
+				g->img_diff = mlx_xpm_file_to_image(g->mlx_ptr, "textures/diffl.xpm", &g->w, &g->w);
+				if (BS > 0)
+					BS-=1;
+			}
+			else if (i == 124)
+			{
+				g->img_diff = mlx_xpm_file_to_image(g->mlx_ptr, "textures/diffr.xpm", &g->w, &g->w);
+				if (BS < 10)
+					BS+=1;
+			}
+		}
+		else if (i == 36 && g->menubar == 5)
 			exit(0);
 		menu(g);
 }
@@ -39,16 +54,20 @@ void	menu(t_pr *g)
 	g->img_buttonexit = mlx_xpm_file_to_image(g->mlx_ptr, "textures/buttonexit.xpm", &g->w, &g->w);
 	g->img_buttonframe = mlx_xpm_file_to_image(g->mlx_ptr, "textures/buttonframe.xpm", &g->w, &g->w);
 	if (g->menubar == 1)
-		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonframe, 140, 180);
+		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonframe, 140, 100);
 	else if (g->menubar == 2)
-		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonframe, 140, 280);
+		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonframe, 140, 200);
 	else if (g->menubar == 3)
-		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonframe, 140, 380);
+		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonframe, 140, 300);
 	else if (g->menubar == 4)
-		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonframe, 140, 480);
-	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonplay, 140, 180);
-	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttoncoop, 140, 280);
-	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonmulti, 140, 380);
-	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonexit, 140, 480);
+		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonframe, 140, 400);
+	else if (g->menubar == 5)
+		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonframe, 140, 500);
+	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonplay, 140, 100);
+	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttoncoop, 140, 200);
+	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonmulti, 140, 300);
+	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_diff, 140, 400);
+	mlx_string_put(g->mlx_ptr, g->win_ptr, 235, 414, g->pointscolor, ft_itoa(BS));
+	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonexit, 140, 500);
 	mlx_loop(g->mlx_ptr);
 }

@@ -4,6 +4,7 @@ void init(t_pr *g)
 {
 	srand(time(0));
 	bzero(g, sizeof(t_pr));
+	BS = 5;
 	g->pauseswitch = 0;
 	g->menuswitch = 1;
 	g->menubar = 1;
@@ -15,7 +16,10 @@ void init(t_pr *g)
 	g->w_height = 640;
 	g->xguy = g->w_width/2 - 32;
 	g->mlx_ptr = mlx_init();
-	g->win_ptr = mlx_new_window(g->mlx_ptr, g->w_width, g->w_height, "game");
+	g->win_ptr = mlx_new_window(g->mlx_ptr, g->w_width, g->w_height, "Mark");
+	g->img_diff = mlx_xpm_file_to_image(g->mlx_ptr, "textures/diff.xpm", &g->w, &g->w);
+	g->img_diffr = mlx_xpm_file_to_image(g->mlx_ptr, "textures/diffr.xpm", &g->w, &g->w);
+	g->img_diffl = mlx_xpm_file_to_image(g->mlx_ptr, "textures/diffl.xpm", &g->w, &g->w);
 	g->img_win = mlx_xpm_file_to_image(g->mlx_ptr, "textures/win.xpm", &g->w, &g->w);
 	g->img_gameover = mlx_xpm_file_to_image(g->mlx_ptr, "textures/gameover.xpm", &g->w, &g->w);
 	g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy.xpm", &g->w, &g->w);
@@ -31,6 +35,19 @@ int closewin(void *param)
     return (0);
 }
 
+int			key_release(int key, void *param)
+{
+	t_pr	*g;
+
+	g = (t_pr *)param;
+	if ((key == 123 || key == 124) && g->menubar == 4)
+	{
+		g->img_diff = mlx_xpm_file_to_image(g->mlx_ptr, "textures/diff.xpm", &g->w, &g->w);
+		menu(g);
+	}
+	return (0);
+}
+
 int			key_press(int key, void *param)
 {
 	t_pr	*g;
@@ -43,7 +60,7 @@ int			key_press(int key, void *param)
 		move(key, g);
 	if (key == 36 && g->pauseswitch == 1)
 		unpause(g);
-	if ((key == 126 || key == 125 || key == 36) && g->menuswitch == 1)
+	if ((key == 126 || key == 125 || key == 123 || key == 124 || key == 36) && g->menuswitch == 1)
 		menumove(key, g);
 	if (key == 15 && g->gameoverswitch == 1)
 	{
@@ -59,6 +76,7 @@ int			key_press(int key, void *param)
 void		setup_controls(t_pr *g)
 {
 	mlx_hook(g->win_ptr, 2, 0, key_press, g);
+	mlx_hook(g->win_ptr, 3, 0, key_release, g);
 	mlx_hook(g->win_ptr, 17, 0, closewin, g);
 }
 

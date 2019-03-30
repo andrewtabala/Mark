@@ -9,6 +9,7 @@
 # include "minilibx_macos/mlx.h"
 
 #define MAX_BULLETS	1000
+#define BS g->bullspeed
 
 enum			e_bullet_type
 {
@@ -48,6 +49,10 @@ typedef struct 	s_pr
 	void	*img_level4;
 	void	*img_gameover;
 	void	*img_win;
+	void	*img_diff;
+	void	*img_diffr;
+	void	*img_diffl;
+
 	int		*img_data;
 	int		pointscolor;
 	int		lev;
@@ -57,6 +62,8 @@ typedef struct 	s_pr
 	int		pauseswitch;
 	int		menuswitch;
 	int		menubar;
+
+	int 	bullspeed;
 
 	int		xguy;
 	int		xteammate;

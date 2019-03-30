@@ -2,7 +2,7 @@
 
 void	init_bullet(t_bullet *bullet, t_pr *g)
 {
-	const int speed[] = {5, 8, 13, 19, 25, 35, 45, 55};
+	const int speed[] = {BS, BS+5, BS+8, BS+14, BS+20, BS+30, BS+40, BS+50};
 
 	bullet->speed = speed[g->lev - 1] + rand() % 10;
 	bullet->x = rand() % g->w_width;
