@@ -11,6 +11,7 @@ install:
 		load_levels.c \
 		itoa.c \
 		menu.c \
+		bullet.c \
 		minilibx_macos/libmlx.a \
 		-L /usr/local/lib \
 		-framework OpenGL \
