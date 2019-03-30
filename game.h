@@ -79,8 +79,8 @@ void	menu(t_pr *g);
 void	menumove(int i, t_pr *g);
 void	bullet_fire(t_pr *g);
 void	unpause(t_pr *g);
-void	load_second_lvl(t_pr *g);
-void	load_third_lvl(t_pr *g);
-void	load_fourth_lvl(t_pr *g);
+void	load_second_level(t_pr *g);
+void	load_third_level(t_pr *g);
+void	load_fourth_level(t_pr *g);
 
 #endif

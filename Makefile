@@ -8,6 +8,7 @@ install:
 		img.c \
 		drawland.c \
 		keyactions.c \
+		load_levels.c \
 		itoa.c \
 		menu.c \
 		minilibx_macos/libmlx.a \
