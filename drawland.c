@@ -29,5 +29,5 @@ void	drawland(t_pr *g)
 	else if (g->lev == 3)
 		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_land, 0, g->w_height - 218);
 	else
-		g->img_land = mlx_xpm_file_to_image(g->mlx_ptr, "textures/mossy.xpm", &g->w, &g->w);
+		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_land, 0, g->w_height - 275);
 }

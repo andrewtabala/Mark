@@ -35,7 +35,7 @@ void	game_over() {
 }
 
 int		bullet_kills(t_pr *g, t_bullet *bullet) {
-	return (bullet->y >= 560 && bullet->x >= g->xguy - 8 && bullet->x <= g->xguy + 72);
+	return (bullet->y >= 535 && bullet->x >= g->xguy - 8 && bullet->x <= g->xguy + 44);
 }
 
 void	bullet_fire(t_pr *g)
@@ -107,6 +107,18 @@ void		move(int i, t_pr *g)
 		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_level3, 0, 0);
 		g->pauseswitch = 1;
 		g->lev = 3;
+	}
+	else if (g->points == 1500 && g->pauseswitch == 0)
+	{
+		g->img_land = mlx_xpm_file_to_image(g->mlx_ptr, "textures/door.xpm", &g->w, &g->w);
+		g->img_back = mlx_xpm_file_to_image(g->mlx_ptr, "textures/back4.xpm", &g->w, &g->w);
+		g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guyspace.xpm", &g->w, &g->w);
+		g->img_proj = mlx_xpm_file_to_image(g->mlx_ptr, "textures/bulletzapas.xpm", &g->w, &g->w);
+		g->img_level4 = mlx_xpm_file_to_image(g->mlx_ptr, "textures/level4.xpm", &g->w, &g->w);
+		g->xguy = g->w_width/2 - 32;
+		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_level4, 0, 0);
+		g->pauseswitch = 1;
+		g->lev = 4;
 	}
 	if (g->pauseswitch == 0)
 	{
