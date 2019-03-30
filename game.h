@@ -45,11 +45,13 @@ typedef struct 	s_pr
 	void	*img_level2;
 	void	*img_level3;
 	void	*img_level4;
+	void	*img_gameover;
 	int		*img_data;
 	int		pointscolor;
 	int		lev;
 	double	points;
 
+	int		gameoverswitch;
 	int		pauseswitch;
 	int		menuswitch;
 	int		menubar;
