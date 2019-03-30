@@ -30,6 +30,13 @@ void	init_bullet(t_bullet *bullet, t_pr *g)
 	bullet->y = rand() % 30;
 }
 
+void	game_over() {
+	exit(1);
+}
+
+int		bullet_kills(t_pr *g, t_bullet *bullet) {
+	return (bullet->y >= 560 && bullet->x >= g->xguy - 8 && bullet->x <= g->xguy + 72);
+}
 
 void	bullet_fire(t_pr *g)
 {
@@ -45,6 +52,9 @@ void	bullet_fire(t_pr *g)
 		g->bullets[i].y += g->bullets[i].speed;
 		if (g->bullets[i].y >= g->w_height) {
 			init_bullet(&g->bullets[i], g);
+		}
+		if (bullet_kills(g, &g->bullets[i])) {
+			game_over();
 		}
 		drawdrop(g, g->bullets[i].x, g->bullets[i].y);
 	}
