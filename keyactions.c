@@ -30,8 +30,9 @@ void	init_bullet(t_bullet *bullet, t_pr *g)
 	bullet->y = rand() % 30;
 }
 
-void	game_over() {
-	exit(1);
+void	game_over(t_pr *g) {
+	g->gameoverswitch = 1;
+	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_gameover, 0, 0);
 }
 
 int		bullet_kills(t_pr *g, t_bullet *bullet) {
@@ -55,7 +56,7 @@ void	bullet_fire(t_pr *g)
 			init_bullet(&g->bullets[i], g);
 		}
 		if (bullet_kills(g, &g->bullets[i])) {
-			game_over();
+			game_over(g);
 		}
 		drawdrop(g, g->bullets[i].x, g->bullets[i].y);
 	}
@@ -83,7 +84,7 @@ void		move(int i, t_pr *g)
 	else if ((i == 125 || i == 1) && g->lev >= 3 && g->pauseswitch == 0)
 		g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guyspace.xpm", &g->w, &g->w);
 	if (g->pauseswitch == 0)
-		g->points += 10;
+		g->points += 0.5;
 	if (g->points == 500 )
 	{
 		g->img_land = mlx_xpm_file_to_image(g->mlx_ptr, "textures/cloud.xpm", &g->w, &g->w);
