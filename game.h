@@ -19,7 +19,6 @@ enum			e_bullet_type
 typedef struct	s_bullet
 {
 	unsigned char		speed;
-	int					type;
 	int					y;
 	int					x;
 }				t_bullet;
