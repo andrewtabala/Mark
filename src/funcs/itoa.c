@@ -1,45 +1,42 @@
 #include "../headers/game.h"
 
-static void		lengths(int n, size_t *len, int *weight)
+static int		get_nb_size(unsigned int nb)
 {
-	*len = 1;
-	if (n >= 0)
+	unsigned int	size;
+
+	size = 0;
+	while (nb >= 10)
 	{
-		*len = 0;
-		n = -n;
+		nb /= 10;
+		++size;
 	}
-	*weight = 1;
-	while (n / *weight < -9)
-	{
-		*weight *= 10;
-		*len += 1;
-	}
+	return (size + 1);
 }
 
-char			*ft_itoa(int n)
+char			*ft_itoa(int nbr)
 {
-	size_t		len;
-	int			weight;
-	size_t		cur;
-	char		*str;
+	char			*str;
+	unsigned int	nb;
+	unsigned int	index;
+	unsigned int	size;
 
-	lengths(n, &len, &weight);
-	str = (char *)malloc(sizeof(*str) * (len + 1));
-	if (str == NULL)
-		return (NULL);
-	cur = 0;
-	if (n < 0)
+	if (nbr < 0)
+		nb = (unsigned int)(nbr * -1);
+	else
+		nb = (unsigned int)nbr;
+	size = (unsigned int)get_nb_size(nb);
+	index = 0;
+	if (!(str = (char*)malloc(sizeof(char) * (size + 1 + (nbr < 0 ? 1 : 0)))))
+		return (0);
+	if (nbr < 0 && (str[index] = '-'))
+		size++;
+	index = size - 1;
+	while (nb >= 10)
 	{
-		str[cur] = '-';
-		cur++;
+		str[index--] = (char)(nb % 10 + 48);
+		nb /= 10;
 	}
-	if (n > 0)
-		n = -n;
-	while (weight >= 1)
-	{
-		str[cur++] = -(n / weight % 10) + 48;
-		weight /= 10;
-	}
-	str[cur] = '\0';
+	str[index] = (char)(nb % 10 + 48);
+	str[size] = '\0';
 	return (str);
 }
