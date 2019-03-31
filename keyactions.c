@@ -65,7 +65,7 @@ void		move(int i, t_pr *g)
 	else if ((i == 124 || i == 2) && g->pauseswitch == 0)
 		move_right(i, g);
 	if (g->pauseswitch == 0)
-		g->points += 1;
+		g->points += 0.5;
 	if (g->points == 500)
 		load_second_level(g);
 	else if (g->points == 1000 && g->pauseswitch == 0)
