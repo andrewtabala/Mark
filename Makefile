@@ -1,4 +1,4 @@
-NAME = game
+NAME = Mark
 
 all: install
 
@@ -9,7 +9,6 @@ install:
 	     -F/Users/atabala/Library/Frameworks \
 		-framework SDL2 \
 		-framework SDL2_mixer \
-		-fsanitize=address -g \
 		src/maincode/main.c \
 		src/maincode/drawland.c \
 		src/maincode/keyactions.c \
