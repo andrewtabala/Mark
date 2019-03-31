@@ -3,13 +3,13 @@ NAME = game
 all: install
 
 install:
-	gcc 	-fsanitize=address -g \
-		 -I /usr/local/include \
-	     -I /Users/ikovalenko/Library/Frameworks/SDL2.framework/Headers \
-	     -I /Users/ikovalenko/Library/Frameworks/SDL2_mixer.framework/Headers \
-	     -F/Users/ikovalenko/Library/Frameworks \
+	gcc  -I /usr/local/include \
+	     -I /Users/atabala/Library/Frameworks/SDL2.framework/Headers \
+	     -I /Users/atabala/Library/Frameworks/SDL2_mixer.framework/Headers \
+	     -F/Users/atabala/Library/Frameworks \
 		-framework SDL2 \
 		-framework SDL2_mixer \
+		-fsanitize=address -g \
 		src/maincode/main.c \
 		src/maincode/drawland.c \
 		src/maincode/keyactions.c \

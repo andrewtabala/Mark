@@ -55,6 +55,7 @@ int main(int argc, char **argv)
 
 	init(&g);
 	setup_controls(&g);
+	Mix_PlayMusic(g.menuSound, -1);
 	menu(&g);
 	mlx_loop(g.mlx_ptr);
 	return (0);
