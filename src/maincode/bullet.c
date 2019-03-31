@@ -23,7 +23,6 @@ void	bullet_fire(t_pr *g)
 		if (g->bullet_count != MAX_BULLETS) {
 			init_bullet(&g->bullets[g->bullet_count], g);
 			g->bullet_count++;
-			printf("%d\n", g->bullet_count);
 		}
 	}
 	for (int i = 0; i < g->bullet_count; i++)
