@@ -12,6 +12,9 @@ install:
 		src/funcs/itoa.c \
 		src/maincode/menu.c \
 		src/maincode/bullet.c \
+		src/maincode/textinitialize.c \
+		src/maincode/init.c \
+		src/maincode/move.c \
 		minilibx_macos/libmlx.a \
 		-L /usr/local/lib \
 		-framework OpenGL \

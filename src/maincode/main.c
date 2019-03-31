@@ -1,33 +1,5 @@
 #include "../headers/game.h"
 
-void init(t_pr *g)
-{
-	srand(time(0));
-	bzero(g, sizeof(t_pr));
-	BS = 5;
-	g->pauseswitch = 0;
-	g->menuswitch = 1;
-	g->menubar = 1;
-	g->pointscolor = 6381921;
-	g->level_speed = 3;
-	g->w = 64;
-	g->lev = 1;
-	g->w_width = 480;
-	g->w_height = 640;
-	g->xguy = g->w_width/2 - 32;
-	g->mlx_ptr = mlx_init();
-	g->win_ptr = mlx_new_window(g->mlx_ptr, g->w_width, g->w_height, "Mark");
-	g->img_diff = mlx_xpm_file_to_image(g->mlx_ptr, "textures/diff.xpm", &g->w, &g->w);
-	g->img_diffr = mlx_xpm_file_to_image(g->mlx_ptr, "textures/diffr.xpm", &g->w, &g->w);
-	g->img_diffl = mlx_xpm_file_to_image(g->mlx_ptr, "textures/diffl.xpm", &g->w, &g->w);
-	g->img_win = mlx_xpm_file_to_image(g->mlx_ptr, "textures/win.xpm", &g->w, &g->w);
-	g->img_gameover = mlx_xpm_file_to_image(g->mlx_ptr, "textures/gameover.xpm", &g->w, &g->w);
-	g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy.xpm", &g->w, &g->w);
-	g->img_teammate = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy.xpm", &g->w, &g->w);	
-	g->bullets = (t_bullet *)calloc(MAX_BULLETS, sizeof(t_bullet));
-	g->xteammate = g->w_width - g->w;
-}
-
 int closewin(void *param)
 {
     (void)param;
@@ -51,7 +23,6 @@ int			key_release(int key, void *param)
 int			key_press(int key, void *param)
 {
 	t_pr	*g;
-
 	g = (t_pr *)param;
 	if (key == 53)
 		exit(0);
