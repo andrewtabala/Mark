@@ -18,13 +18,10 @@ void	bullet_fire(t_pr *g)
 {
 	int vero[] = {6, 5, 4, 3};
 
-	if (!(rand() % (vero[g->lev - 1] * 15) / g->bullspeed) || !((int)g->points % 500))
+	if (g->bullet_count != MAX_BULLETS && (!(rand() % (vero[g->lev - 1] * 15) / g->bullspeed) || !((int)g->points % 500)))
 	{
-		if (g->bullet_count != MAX_BULLETS) {
-			init_bullet(&g->bullets[g->bullet_count], g);
-			g->bullet_count++;
-			printf("%d\n", g->bullet_count);
-		}
+		init_bullet(&g->bullets[g->bullet_count], g);
+		g->bullet_count++;
 	}
 	for (int i = 0; i < g->bullet_count; i++)
 	{

@@ -11,6 +11,9 @@
 #define MAX_BULLETS	1000
 #define BS g->bullspeed
 
+#include <SDL.h>
+#include <SDL_mixer.h>
+
 enum			e_bullet_type
 {
 	NORMAL,
@@ -54,6 +57,7 @@ typedef struct 	s_pr
 	void	*img_diffl;
 	void	*img_mark;
 
+	pid_t	music;
 	int		*img_data;
 	int		pointscolor;
 	int		lev;
