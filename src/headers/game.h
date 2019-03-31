@@ -54,6 +54,7 @@ typedef struct 	s_pr
 	void	*img_diffl;
 	void	*img_mark;
 	void	*img_keys;
+	void	*img_keyscoop;
 
 	int		*img_data;
 	int		pointscolor;
