@@ -17,8 +17,9 @@ int		bullet_kills(t_pr *g, t_bullet *bullet) {
 void	bullet_fire(t_pr *g)
 {
 	int vero[] = {6, 5, 4, 3};
+	int amount_bullet[] = {70, 65, 60, 55, 50, 45, 40, 35, 25, 15, 1};
 
-	if (g->bullet_count != MAX_BULLETS && (!(rand() % (vero[g->lev - 1] * 15) / g->bullspeed) || !((int)g->points % 500)))
+	if (g->bullet_count != MAX_BULLETS && (!(rand() % amount_bullet[BS - 1]) || !((int)g->points % 500)))
 	{
 		init_bullet(&g->bullets[g->bullet_count], g);
 		g->bullet_count++;
