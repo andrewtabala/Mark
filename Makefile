@@ -3,10 +3,11 @@ NAME = game
 all: install
 
 install:
-	gcc  -I /usr/local/include \
-	     -I frameworks/SDL2.framework/Headers \
-	     -I frameworks/SDL2_mixer.framework/Headers \
-	     -Fframeworks \
+	gcc 	-fsanitize=address -g \
+		 -I /usr/local/include \
+	     -I /Users/ikovalenko/Library/Frameworks/SDL2.framework/Headers \
+	     -I /Users/ikovalenko/Library/Frameworks/SDL2_mixer.framework/Headers \
+	     -F/Users/ikovalenko/Library/Frameworks \
 		-framework SDL2 \
 		-framework SDL2_mixer \
 		src/maincode/main.c \

@@ -22,24 +22,22 @@ int			key_release(int key, void *param)
 
 int			key_press(int key, void *param)
 {
-	t_pr	*g;
-	g = (t_pr *)param;
 	if (key == 53)
 		exit(0);
 	if ((key == 123 || key == 124 || key == 0 || key == 2 || key == 125 || key == 1) &&
-		g->menuswitch == 0 && g->pauseswitch == 0 && g->gameoverswitch == 0)
-		move(key, g);
-	if (key == 36 && g->pauseswitch == 1)
-		unpause(g);
-	if ((key == 126 || key == 125 || key == 123 || key == 124 || key == 36) && g->menuswitch == 1)
-		menumove(key, g);
-	if (key == 15 && g->gameoverswitch == 1)
+		((t_pr*)param)->menuswitch == 0 && ((t_pr*)param)->pauseswitch == 0 && ((t_pr*)param)->gameoverswitch == 0)
+		move(key, ((t_pr*)param));
+	if (key == 36 && ((t_pr*)param)->pauseswitch == 1)
+		unpause(((t_pr*)param));
+	if ((key == 126 || key == 125 || key == 123 || key == 124 || key == 36) && ((t_pr*)param)->menuswitch == 1)
+		menumove(key, ((t_pr*)param));
+	if (key == 15 && ((t_pr*)param)->gameoverswitch == 1)
 	{
-		g->lev = 1;
-		g->points = 0;
-		g->gameoverswitch = 0;
-		g->menuswitch = 1;
-		menu(g);
+		((t_pr*)param)->lev = 1;
+		((t_pr*)param)->points = 0;
+		((t_pr*)param)->gameoverswitch = 0;
+		((t_pr*)param)->menuswitch = 1;
+		menu(((t_pr*)param));
 	}
 	return (0);
 }
