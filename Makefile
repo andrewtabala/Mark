@@ -4,9 +4,9 @@ all: install
 
 install:
 	gcc  -I /usr/local/include \
-	     -I frameworks/SDL2.framework/Headers \
-	     -I frameworks/SDL2_mixer.framework/Headers \
-	     -Fframeworks \
+	     -I /Users/dlitvinenk/Library/Frameworks/SDL2.framework/Headers \
+	     -I /Users/dlitvinenk/Library/Frameworks/SDL2_mixer.framework/Headers \
+	     -F/Users/dlitvinenk/Library/Frameworks \
 		-framework SDL2 \
 		-framework SDL2_mixer \
 		src/maincode/main.c \
