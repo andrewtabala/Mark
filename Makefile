@@ -1,4 +1,4 @@
-NAME = game
+NAME = Mark
 
 all: install
 
@@ -7,6 +7,9 @@ install:
 	     -I /Users/dlitvinenk/Library/Frameworks/SDL2.framework/Headers \
 	     -I /Users/dlitvinenk/Library/Frameworks/SDL2_mixer.framework/Headers \
 	     -F/Users/dlitvinenk/Library/Frameworks \
+	     -I /Users/atabala/Library/Frameworks/SDL2.framework/Headers \
+	     -I /Users/atabala/Library/Frameworks/SDL2_mixer.framework/Headers \
+	     -F/Users/atabala/Library/Frameworks \
 		-framework SDL2 \
 		-framework SDL2_mixer \
 		src/maincode/main.c \

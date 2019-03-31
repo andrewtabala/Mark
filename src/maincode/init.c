@@ -32,11 +32,11 @@ void	init(t_pr *g)
 	g->mlx_ptr = mlx_init();
 	SDL_Init(SDL_INIT_AUDIO);
 	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
-	g->menuSound = Mix_LoadMUS("x.mp3");
-	g->firstLevel = Mix_LoadMUS("x.mp3");
-	g->secondLevel = Mix_LoadMUS("x.mp3");
-	g->thirdLevel = Mix_LoadMUS("x.mp3");
-	g->fourthLevel = Mix_LoadMUS("x.mp3");
+	g->menuSound = Mix_LoadMUS("music/menu.mp3");
+	g->firstLevel = Mix_LoadMUS("music/level1.mp3");
+	g->secondLevel = Mix_LoadMUS("music/level2.mp3");
+	g->thirdLevel = Mix_LoadMUS("music/level3.mp3");
+	g->fourthLevel = Mix_LoadMUS("music/level4.mp3");
 	g->win_ptr = mlx_new_window(g->mlx_ptr, g->w_width, g->w_height, "Mark");
 	g->img_keys = mlx_xpm_file_to_image(g->mlx_ptr, "textures/keys.xpm", &g->w, &g->w);
 	g->img_keyscoop = mlx_xpm_file_to_image(g->mlx_ptr, "textures/keyscoop.xpm", &g->w, &g->w);

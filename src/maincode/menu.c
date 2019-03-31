@@ -1,3 +1,4 @@
+
 #include "../headers/game.h"
 
 void	diffinit(int i, t_pr *g)
@@ -36,8 +37,8 @@ void	menumove(int i, t_pr *g)
 void	menu(t_pr *g)
 {
 	char *tmp = ft_itoa(BS);
+	mlx_clear_window(g->mlx_ptr, g->win_ptr);
 	textmenuinit(g);
-	Mix_PlayMusic(g->menuSound, -1);
 	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonplay, 140, 150);
 	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttoncoop, 140, 250);
 	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonmulti, 140, 350);
@@ -50,5 +51,4 @@ void	menu(t_pr *g)
 		mlx_string_put(g->mlx_ptr, g->win_ptr, 225, 464, g->pointscolor, tmp);
 	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonexit, 140, 550);
 	free(tmp);
-	mlx_loop(g->mlx_ptr);
 }

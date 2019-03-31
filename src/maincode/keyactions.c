@@ -48,5 +48,4 @@ void		move(int i, t_pr *g)
 		playframes(g);
 	if (g->points == 2000 && g->pauseswitch == 0 && (g->menubar == 1 || g->menubar == 2))
 		game_over(g);
-	mlx_loop(g->mlx_ptr);
 }
