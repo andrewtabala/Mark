@@ -28,7 +28,10 @@ int			key_press(int key, void *param)
 		exit(0);
 	if ((key == 123 || key == 124 || key == 0 || key == 2 || key == 125 || key == 1) &&
 		g->menuswitch == 0 && g->pauseswitch == 0 && g->gameoverswitch == 0)
+	{
+		Mix_HaltMusic();
 		move(key, g);
+	}
 	if (key == 36 && g->pauseswitch == 1)
 		unpause(g);
 	if ((key == 126 || key == 125 || key == 123 || key == 124 || key == 36) && g->menuswitch == 1)
@@ -56,7 +59,6 @@ int main(int argc, char **argv)
 	t_pr	g;
 
 	init(&g);
-	SDL_Init(SDL_INIT_AUDIO);
 	setup_controls(&g);
 	menu(&g);
 	mlx_loop(g.mlx_ptr);

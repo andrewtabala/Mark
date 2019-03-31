@@ -59,6 +59,12 @@ typedef struct 	s_pr
 	void	*img_keys;
 	void	*img_keyscoop;
 
+	Mix_Music *menuSound;
+	Mix_Music *firstLevel;
+	Mix_Music *secondLevel;
+	Mix_Music *thirdLevel;
+	Mix_Music *fourthLevel;
+
 	pid_t	music;
 	int		*img_data;
 	int		pointscolor;

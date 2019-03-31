@@ -36,6 +36,7 @@ void	menumove(int i, t_pr *g)
 void	menu(t_pr *g)
 {
 	textmenuinit(g);
+	Mix_PlayMusic(g->menuSound, -1);
 	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonplay, 140, 150);
 	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttoncoop, 140, 250);
 	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonmulti, 140, 350);

@@ -2,6 +2,8 @@
 
 void		load_second_level(t_pr *g)
 {
+	Mix_HaltMusic();
+	Mix_PlayMusic(g->secondLevel, -1);
 	g->img_land = mlx_xpm_file_to_image(g->mlx_ptr, "textures/cloud.xpm", &g->w, &g->w);
 	g->img_back = mlx_xpm_file_to_image(g->mlx_ptr, "textures/back2.xpm", &g->w, &g->w);
 	g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guy.xpm", &g->w, &g->w);
@@ -22,6 +24,8 @@ void		load_second_level(t_pr *g)
 
 void		load_third_level(t_pr *g)
 {
+	Mix_HaltMusic();
+	Mix_PlayMusic(g->thirdLevel, -1);
 	g->img_land = mlx_xpm_file_to_image(g->mlx_ptr, "textures/rocket.xpm", &g->w, &g->w);
 	g->img_back = mlx_xpm_file_to_image(g->mlx_ptr, "textures/back3.xpm", &g->w, &g->w);
 	g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guyspace.xpm", &g->w, &g->w);
@@ -41,6 +45,8 @@ void		load_third_level(t_pr *g)
 
 void		load_fourth_level(t_pr *g)
 {
+	Mix_HaltMusic();
+	Mix_PlayMusic(g->fourthLevel, -1);	
 	g->img_land = mlx_xpm_file_to_image(g->mlx_ptr, "textures/door.xpm", &g->w, &g->w);
 	g->img_back = mlx_xpm_file_to_image(g->mlx_ptr, "textures/back4.xpm", &g->w, &g->w);
 	g->img_guy = mlx_xpm_file_to_image(g->mlx_ptr, "textures/guyspace.xpm", &g->w, &g->w);
