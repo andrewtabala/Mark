@@ -1,4 +1,4 @@
-#include "game.h"
+#include "../headers/game.h"
 
 void	init_bullet(t_bullet *bullet, t_pr *g)
 {

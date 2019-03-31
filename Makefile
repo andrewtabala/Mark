@@ -4,14 +4,14 @@ all: install
 
 install:
 	gcc  -I /usr/local/include \
-		main.c \
-		img.c \
-		drawland.c \
-		keyactions.c \
-		load_levels.c \
-		itoa.c \
-		menu.c \
-		bullet.c \
+		src/maincode/main.c \
+		src/maincode/img.c \
+		src/maincode/drawland.c \
+		src/maincode/keyactions.c \
+		src/maincode/load_levels.c \
+		src/funcs/itoa.c \
+		src/maincode/menu.c \
+		src/maincode/bullet.c \
 		minilibx_macos/libmlx.a \
 		-L /usr/local/lib \
 		-framework OpenGL \

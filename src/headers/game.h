@@ -6,7 +6,7 @@
 # include <stdio.h>
 # include <string.h>
 # include <time.h>
-# include "minilibx_macos/mlx.h"
+# include "../../minilibx_macos/mlx.h"
 
 #define MAX_BULLETS	1000
 #define BS g->bullspeed

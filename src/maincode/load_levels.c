@@ -1,4 +1,4 @@
-#include "game.h"
+#include "../headers/game.h"
 
 void		load_second_level(t_pr *g)
 {

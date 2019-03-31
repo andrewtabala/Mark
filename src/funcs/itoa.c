@@ -1,4 +1,4 @@
-#include "game.h"
+#include "../headers/game.h"
 
 static void		lengths(int n, size_t *len, int *weight)
 {

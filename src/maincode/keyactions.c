@@ -1,4 +1,4 @@
-#include "game.h"
+#include "../headers/game.h"
 
 void	unpause(t_pr *g)
 {

@@ -1,4 +1,4 @@
-#include "game.h"
+#include "../headers/game.h"
 
 void	img(t_pr *g)
 {
