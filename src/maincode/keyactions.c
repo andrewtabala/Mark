@@ -9,10 +9,16 @@ void	unpause(t_pr *g)
 
 void		drawui(t_pr *g)
 {
+	char		*tmp;
+
 	mlx_string_put(g->mlx_ptr, g->win_ptr, 5, 5, g->pointscolor, "Points: ");
-	mlx_string_put(g->mlx_ptr, g->win_ptr, 76, 5, g->pointscolor, ft_itoa((int)g->points));
+	tmp = ft_itoa((int)g->points);
+	mlx_string_put(g->mlx_ptr, g->win_ptr, 76, 5, g->pointscolor, tmp);
+	free(tmp);
 	mlx_string_put(g->mlx_ptr, g->win_ptr, 400, 5, g->pointscolor, "Level: ");
-	mlx_string_put(g->mlx_ptr, g->win_ptr, 465, 5, g->pointscolor, ft_itoa(g->lev));
+	tmp = ft_itoa(g->lev);
+	mlx_string_put(g->mlx_ptr, g->win_ptr, 465, 5, g->pointscolor, tmp);
+	free(tmp);
 }
 
 void	game_over(t_pr *g) {
