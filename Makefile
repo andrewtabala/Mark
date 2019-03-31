@@ -46,4 +46,4 @@ uninstall:
 	rm -rf *.o
 clean: uninstall
 	rm -rf $(NAME)
-reinstall: uninstall clean install
+reinstall: clean install
