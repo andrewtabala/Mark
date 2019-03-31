@@ -1,5 +1,14 @@
 #include "../headers/game.h"
 
+void	playframes(t_pr *g)
+{
+	drawback(g);
+	drawland(g);
+	drawui(g);
+	drawguy(g);
+	bullet_fire(g);
+}
+
 void	setdef(t_pr *g)
 {
 	BS = 5;
@@ -22,6 +31,7 @@ void	init(t_pr *g)
 	setdef(g);
 	g->mlx_ptr = mlx_init();
 	g->win_ptr = mlx_new_window(g->mlx_ptr, g->w_width, g->w_height, "Mark");
+	g->img_mark = mlx_xpm_file_to_image(g->mlx_ptr, "textures/backmenu.xpm", &g->w, &g->w);
 	g->img_diff = mlx_xpm_file_to_image(g->mlx_ptr, "textures/diff.xpm", &g->w, &g->w);
 	g->img_diffr = mlx_xpm_file_to_image(g->mlx_ptr, "textures/diffr.xpm", &g->w, &g->w);
 	g->img_diffl = mlx_xpm_file_to_image(g->mlx_ptr, "textures/diffl.xpm", &g->w, &g->w);

@@ -2,7 +2,7 @@
 
 void	textmenuinit(t_pr *g)
 {
-	g->img_back = mlx_xpm_file_to_image(g->mlx_ptr, "textures/back2.xpm", &g->w, &g->w);
+	g->img_back = mlx_xpm_file_to_image(g->mlx_ptr, "textures/backmenu.xpm", &g->w, &g->w);
 	g->img_buttonplay = mlx_xpm_file_to_image(g->mlx_ptr, "textures/buttonplay.xpm", &g->w, &g->w);
 	g->img_buttoncoop = mlx_xpm_file_to_image(g->mlx_ptr, "textures/buttoncoop.xpm", &g->w, &g->w);
 	g->img_buttonmulti = mlx_xpm_file_to_image(g->mlx_ptr, "textures/buttonmulti.xpm", &g->w, &g->w);
@@ -10,15 +10,15 @@ void	textmenuinit(t_pr *g)
 	g->img_buttonframe = mlx_xpm_file_to_image(g->mlx_ptr, "textures/buttonframe.xpm", &g->w, &g->w);
 	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_back, 0, 0);
 	if (g->menubar == 1)
-		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonframe, 140, 100);
+		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonframe, 140, 150);
 	else if (g->menubar == 2)
-		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonframe, 140, 200);
+		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonframe, 140, 250);
 	else if (g->menubar == 3)
-		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonframe, 140, 300);
+		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonframe, 140, 350);
 	else if (g->menubar == 4)
-		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonframe, 140, 400);
+		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonframe, 140, 450);
 	else if (g->menubar == 5)
-		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonframe, 140, 500);
+		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonframe, 140, 550);
 }
 
 void	startgameinit(t_pr *g)

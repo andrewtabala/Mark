@@ -8,7 +8,6 @@
 # include <time.h>
 # include "../../minilibx_macos/mlx.h"
 
-#define FRAME drawback(g);drawland(g);drawui(g);drawguy(g);bullet_fire(g)
 #define MAX_BULLETS	1000
 #define BS g->bullspeed
 
@@ -53,6 +52,7 @@ typedef struct 	s_pr
 	void	*img_diff;
 	void	*img_diffr;
 	void	*img_diffl;
+	void	*img_mark;
 
 	int		*img_data;
 	int		pointscolor;
@@ -97,6 +97,7 @@ void	load_fourth_level(t_pr *g);
 void	bullet_fire(t_pr *g);
 void	game_over(t_pr *g);
 
+void	playframes(t_pr *g);
 void	textmenuinit(t_pr *g);
 void	startgameinit(t_pr *g);
 

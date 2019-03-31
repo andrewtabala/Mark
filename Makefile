@@ -5,7 +5,6 @@ all: install
 install:
 	gcc  -I /usr/local/include \
 		src/maincode/main.c \
-		src/maincode/img.c \
 		src/maincode/drawland.c \
 		src/maincode/keyactions.c \
 		src/maincode/load_levels.c \

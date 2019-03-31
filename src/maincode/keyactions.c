@@ -4,11 +4,7 @@ void	unpause(t_pr *g)
 {
 	g->pauseswitch = 0;
 	g->bullet_count = 0;
-	drawback(g);
-	drawland(g);
-	drawui(g);
-	drawguy(g);
-	bullet_fire(g);
+	playframes(g);
 }
 
 void		drawui(t_pr *g)
@@ -35,7 +31,7 @@ void		move(int i, t_pr *g)
 	else if ((i == 124 || i == 2) && g->pauseswitch == 0)
 		move_right(i, g);
 	if (g->pauseswitch == 0)
-		g->points += 0.5;
+		g->points += 10;
 	if (g->points == 500)
 		load_second_level(g);
 	else if (g->points == 1000 && g->pauseswitch == 0)
@@ -43,7 +39,7 @@ void		move(int i, t_pr *g)
 	else if (g->points == 1500 && g->pauseswitch == 0)
 		load_fourth_level(g);	
 	if (g->pauseswitch == 0 && g->gameoverswitch == 0)
-		FRAME;
+		playframes(g);
 	if (g->points == 2000 && g->pauseswitch == 0 && (g->menubar == 1 || g->menubar == 2))
 		game_over(g);
 	mlx_loop(g->mlx_ptr);
