@@ -35,6 +35,7 @@ void	menumove(int i, t_pr *g)
 
 void	menu(t_pr *g)
 {
+	char *tmp = ft_itoa(BS);
 	textmenuinit(g);
 	Mix_PlayMusic(g->menuSound, -1);
 	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonplay, 140, 150);
@@ -42,11 +43,12 @@ void	menu(t_pr *g)
 	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonmulti, 140, 350);
 	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_diff, 140, 450);
 	if (BS < 10)
-		mlx_string_put(g->mlx_ptr, g->win_ptr, 235, 464, g->pointscolor, ft_itoa(BS));
+		mlx_string_put(g->mlx_ptr, g->win_ptr, 235, 464, g->pointscolor, tmp);
 	else if (BS == 10)
-		mlx_string_put(g->mlx_ptr, g->win_ptr, 230, 464, g->pointscolor, ft_itoa(BS));
+		mlx_string_put(g->mlx_ptr, g->win_ptr, 230, 464, g->pointscolor, tmp);
 	else if (BS == 100)
-		mlx_string_put(g->mlx_ptr, g->win_ptr, 225, 464, g->pointscolor, ft_itoa(BS));
+		mlx_string_put(g->mlx_ptr, g->win_ptr, 225, 464, g->pointscolor, tmp);
 	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonexit, 140, 550);
+	free(tmp);
 	mlx_loop(g->mlx_ptr);
 }
