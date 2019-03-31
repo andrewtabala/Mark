@@ -49,7 +49,7 @@ void		setup_controls(t_pr *g)
 	mlx_hook(g->win_ptr, 17, 0, closewin, g);
 }
 
-int main(int argc, char **argv)
+int main(void)
 {
 	t_pr	g;
 

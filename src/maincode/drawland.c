@@ -19,8 +19,6 @@ void	drawback(t_pr *g)
 
 void	drawland(t_pr *g)
 {
-	int 	i = 0;
-	int 	c = 480;
 	if (g->lev == 1)
 		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_land, 0, g->w_height - 40);
 	else if (g->lev == 2)
