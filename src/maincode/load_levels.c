@@ -11,6 +11,10 @@ void		load_second_level(t_pr *g)
 	g->xguy = (g->menubar == 2) ? 0 : g->w_width/2 - 32;
 	g->xteammate = g->w_width - 64;
 	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_level2, 0, 0);
+	if (g->menubar == 2)
+		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_keyscoop, 0, 0);
+	else	
+		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_keys, 0, 0);
 	g->pauseswitch = 1;
 	g->pointscolor = 14277081;
 	g->lev = 2;
@@ -27,6 +31,10 @@ void		load_third_level(t_pr *g)
 	g->xguy = (g->menubar == 2) ? 0 : g->w_width/2 - 32;
 	g->xteammate = g->w_width - 64;
 	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_level3, 0, 0);
+	if (g->menubar == 2)
+		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_keyscoop, 0, 0);
+	else	
+		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_keys, 0, 0);
 	g->pauseswitch = 1;
 	g->lev = 3;
 }
@@ -42,6 +50,10 @@ void		load_fourth_level(t_pr *g)
 	g->xguy = (g->menubar == 2) ? 0 : g->w_width/2 - 32;
 	g->xteammate = g->w_width - 64;
 	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_level4, 0, 0);
+	if (g->menubar == 2)
+		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_keyscoop, 0, 0);
+	else	
+		mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_keys, 0, 0);
 	g->pauseswitch = 1;
 	g->lev = 4;
 }

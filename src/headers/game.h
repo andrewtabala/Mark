@@ -56,6 +56,8 @@ typedef struct 	s_pr
 	void	*img_diffr;
 	void	*img_diffl;
 	void	*img_mark;
+	void	*img_keys;
+	void	*img_keyscoop;
 
 	pid_t	music;
 	int		*img_data;

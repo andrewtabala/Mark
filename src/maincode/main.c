@@ -54,7 +54,9 @@ void		setup_controls(t_pr *g)
 int main(int argc, char **argv)
 {
 	t_pr	g;
+
 	init(&g);
+	SDL_Init(SDL_INIT_AUDIO);
 	setup_controls(&g);
 	menu(&g);
 	mlx_loop(g.mlx_ptr);

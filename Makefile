@@ -4,6 +4,11 @@ all: install
 
 install:
 	gcc  -I /usr/local/include \
+	     -I ~/Library/Frameworks/SDL2.framework/Headers \
+	     -I ~/Library/Frameworks/SDL2_mixer.framework/Headers \
+	     -F ~/Library/Frameworks \
+		-framework SDL2 \
+		-framework SDL2_mixer \
 		src/maincode/main.c \
 		src/maincode/drawland.c \
 		src/maincode/keyactions.c \
