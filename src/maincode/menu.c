@@ -26,9 +26,7 @@ void	menumove(int i, t_pr *g)
 	else if (g->menubar == 4)
 		diffinit(i, g);
 	else if (i == 124 && g->menubar == 5 && BS == 10)
-		BS = 100;
-	else if (i == 123 && g->menubar == 5 && BS == 100)
-		BS = 10;
+		BS = 11;
 	else if (i == 36 && g->menubar == 5)
 		exit(0);
 	menu(g);
@@ -47,8 +45,8 @@ void	menu(t_pr *g)
 		mlx_string_put(g->mlx_ptr, g->win_ptr, 235, 464, g->pointscolor, tmp);
 	else if (BS == 10)
 		mlx_string_put(g->mlx_ptr, g->win_ptr, 230, 464, g->pointscolor, tmp);
-	else if (BS == 100)
-		mlx_string_put(g->mlx_ptr, g->win_ptr, 225, 464, g->pointscolor, tmp);
+	else if (BS == 11)
+		mlx_string_put(g->mlx_ptr, g->win_ptr, 220, 464, 12851998, "HELL");
 	mlx_put_image_to_window(g->mlx_ptr, g->win_ptr, g->img_buttonexit, 140, 550);
 	free(tmp);
 }

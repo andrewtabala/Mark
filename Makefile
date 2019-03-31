@@ -1,4 +1,4 @@
-NAME = Mark
+NAME = mark
 
 all: install
 

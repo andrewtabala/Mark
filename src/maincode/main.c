@@ -37,6 +37,8 @@ int			key_press(int key, void *param)
 		((t_pr*)param)->points = 0;
 		((t_pr*)param)->gameoverswitch = 0;
 		((t_pr*)param)->menuswitch = 1;
+		Mix_HaltMusic();
+		Mix_PlayMusic(((t_pr*)param)->menuSound, -1);
 		menu(((t_pr*)param));
 	}
 	return (0);
