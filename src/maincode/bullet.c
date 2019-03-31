@@ -2,9 +2,9 @@
 
 void	init_bullet(t_bullet *bullet, t_pr *g)
 {
-	const int speed[] = {BS, BS*2, BS*4, BS*8, BS*16, BS*32, BS*64, BS*128};
+	const int speed[] = {3, 5, 7, 9, 12, 15, 18, 21};
 
-	bullet->speed = speed[g->lev - 1] + rand() % 10;
+	bullet->speed = speed[rand() % (g->lev * 2)];
 	bullet->x = rand() % g->w_width;
 	bullet->y = rand() % 30;
 }
@@ -17,11 +17,13 @@ int		bullet_kills(t_pr *g, t_bullet *bullet) {
 void	bullet_fire(t_pr *g)
 {
 	int vero[] = {6, 5, 4, 3};
-	if (!(rand() % (vero[g->lev - 1] * 15)) || !((int)g->points % 500))
+
+	if (!(rand() % (vero[g->lev - 1] * 15) / g->bullspeed) || !((int)g->points % 500))
 	{
 		if (g->bullet_count != MAX_BULLETS) {
 			init_bullet(&g->bullets[g->bullet_count], g);
 			g->bullet_count++;
+			printf("%d\n", g->bullet_count);
 		}
 	}
 	for (int i = 0; i < g->bullet_count; i++)
