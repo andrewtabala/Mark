@@ -16,7 +16,7 @@ int		bullet_kills(t_pr *g, t_bullet *bullet) {
 
 void	bullet_fire(t_pr *g)
 {
-	int amount_bullet[] = {70, 65, 60, 55, 50, 45, 40, 35, 25, 15, 1};
+	int amount_bullet[] = {60, 55, 50, 45, 30, 25, 20, 15, 10, 5, 1};
 
 	if (g->bullet_count != MAX_BULLETS && (!(rand() % amount_bullet[BS - 1]) || !((int)g->points % 500)))
 	{
