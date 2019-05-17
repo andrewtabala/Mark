@@ -15,9 +15,11 @@ Lore:
 
 Gameplay:
 
-	The goal of the game is to dodge bullets and progress through levels. Difficulty can be changed in the main menu.
+	The goal of the game is to dodge bullets and progress through levels.
 	
 	Co-op mod includes controls for two players: WASD for player one, and key arrows for player two.
 	
 	Multiplayer mod references to No Man's Sky history. Every Mark player defends his own planet, and since the universe
 	is infinite, your chances to meet another player are very low. But you can always try.
+	
+	Difficulty can be changed in the main menu.
