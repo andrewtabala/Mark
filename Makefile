@@ -4,7 +4,7 @@ all: install
 
 LIBMX=minilibx_macos/libmlx.a
 
-CC=clang -std=c11 -Wall -Wextra -Werror -Wpedantic
+CC=clang -arch x86_64 -std=c11 -Wall -Wextra -Wpedantic
 
 FRAMEWORKS = frameworks/SDL2.framework frameworks/SDL2_mixer.framework
 
@@ -18,14 +18,12 @@ $(NAME):
 	@mkdir -p $(HOME)/Library/Frameworks
 	@cp -rf $(FRAMEWORKS) $(HOME)/Library/Frameworks
 	$(CC) -I /usr/local/include \
-             -I $(HOME)/Library/Frameworks/SDL2.framework/Headers \
-             -I $(HOME)/dlitvinenk/Library/Frameworks/SDL2_mixer.framework/Headers \
-             -F $(HOME)/Library/Frameworks \
-             -I $(HOME)/Library/Frameworks/SDL2.framework/Headers \
-             -I $(HOME)/Library/Frameworks/SDL2_mixer.framework/Headers \
-             -F $(HOME)/Library/Frameworks \
-                -framework SDL2 \
-                -framework SDL2_mixer \
+    -I $(HOME)/Library/Frameworks/SDL2.framework/Headers \
+    -I $(HOME)/Library/Frameworks/SDL2_mixer.framework/Headers \
+    -F $(HOME)/Library/Frameworks \
+    -Wl,-rpath,$(HOME)/Library/Frameworks \
+    -framework SDL2 \
+    -framework SDL2_mixer \
                 src/maincode/main.c \
                 src/maincode/drawland.c \
                 src/maincode/keyactions.c \
